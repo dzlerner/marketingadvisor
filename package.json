@@ -1,0 +1,26 @@
+{
+  "name": "marketing-advisor",
+  "version": "1.0.0",
+  "description": "A terminal-based business information collector for Marketing Advisor",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "inquirer": "^8.2.0",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.0",
+    "@types/node": "^20.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4",
+    "vitest": "^1.0.0"
+  }
+}

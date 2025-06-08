@@ -1,0 +1,108 @@
+HIGH-LEVEL GOALS & BACKGROUND:
+
+I want to start a business focused on helping small businesses stand up their digital marketing presence. This might include learning about the business, developing a marketing strategy, and then helping the customer onboard and begin executing basic advertising to start their business off (in the future, we can expand into more comprehensive, ongoing marketing guidance and strategy). I think my MVP should be to prove the concept of an AI assisted onboarding and ad setup workflow on Google Ads. This will help me gain confidence and build similar agents, rounding out the ecosystem.
+
+The base requirements for the MVP would be:
+
+1. Learn and ask relevant questions about your business
+2. Develop a marketing strategy
+3. Create a Google account (or guide you to do it)
+4. Configure new ads, budgets, and targeting, etc. (or guide you)
+5. Guide you to start the campaign
+6. It must have a web UI
+
+SYSTEM DESIGN & REQUIREMENTS
+
+🧠 Core AI Agent Capabilities
+
+1. Business Understanding Agent
+
+Goal: Gather structured info about the user's business.
+
+Inputs: Industry, services/products, goals, customer type, location, competitors.
+
+Tools: Natural language understanding, form auto-complete, embeddings to match with business categories/templates.
+
+UX: Friendly chatbot or form-based wizard.
+
+
+2. Marketing Strategy Generator
+
+Goal: Translate business inputs into a lightweight digital strategy.
+
+Outputs: Suggested campaign types (search/display), messaging focus, geo-targeting, call-to-action strategy.
+
+Models: LLM fine-tuned on small biz use cases + rules engine for compliance.
+
+
+3. Google Ads Setup Assistant
+
+Goal: Walk users through or automate:
+
+Creating a Google Ads account (or verifying ownership)
+
+Setting budget and goals
+
+Creating campaigns/ad groups/keywords
+
+Writing copy (AI-generated)
+
+
+Tools/API: Google Ads API (OAuth flow, account creation not automatable, but campaign setup is).
+
+
+4. Launch Coach
+
+Goal: Final review + walk user through launching.
+
+Functionality: Checklist + inline guidance + optional live co-pilot mode.
+
+Optional: Connect to email to notify when ads are live or spend hits.
+
+
+---
+
+🌐 Web UI Features (Frontend)
+
+Tech Stack: React + Tailwind + LangChain agent orchestration backend
+
+Pages/Flows:
+
+Onboarding Wizard (Forms/Chat)
+
+Strategy Preview
+
+Ad Setup Flow (step-by-step with preview/edit options)
+
+Summary & Launch Page
+
+Help/Live Chat fallback
+
+---
+
+---
+
+🧩 Future-Proofing for Ecosystem
+
+Structure agents modularly:
+
+business_info_agent
+
+strategy_agent
+
+ad_setup_agent
+
+copywriting_agent
+
+compliance_agent
+
+
+Later, this makes it easy to plug into:
+
+Facebook Ads
+
+Email marketing flows
+
+CRM integrations
+
+Landing page builders
