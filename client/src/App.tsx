@@ -1,6 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 // Types (copy from backend for now)
@@ -292,8 +290,6 @@ function App() {
   const [showSummary, setShowSummary] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [savedForm, setSavedForm] = useState<BusinessInfo | null>(null);
-  const [savedHistory, setSavedHistory] = useState<{ q: string; a: string }[] | null>(null);
-  const [savedCurrent, setSavedCurrent] = useState<number | null>(null);
   const [editForm, setEditForm] = useState<BusinessInfo | null>(null);
 
   const chatEndRef = useRef<HTMLDivElement | null>(null);
@@ -332,8 +328,6 @@ function App() {
     } else {
       setShowSummary(true);
       setSavedForm({ ...form, [q.key]: input });
-      setSavedHistory([...history, { q: q.prompt, a: input }]);
-      setSavedCurrent(current + 1);
     }
   };
 
@@ -372,8 +366,6 @@ function App() {
     }
     setShowSummary(true);
     setSavedForm({ ...tempForm });
-    setSavedHistory([...tempHistory]);
-    setSavedCurrent(i);
     setAutoFilling(false);
   };
 
@@ -512,8 +504,6 @@ function App() {
     const newHistory = questions.map(q => ({ q: q.prompt, a: String(editForm[q.key] ?? '') }));
     setHistory(newHistory);
     setSavedForm(editForm);
-    setSavedHistory(newHistory);
-    setSavedCurrent(questions.length);
     setEditMode(false);
     setShowSummary(true);
   };
@@ -672,7 +662,7 @@ function App() {
                 <div style={{ marginTop: 16 }}>
                   <b>You've completed the marketing strategy walkthrough!</b>
                   <br />
-                  <button onClick={() => { setSubmitted(false); setCurrent(0); setHistory([]); setForm(initialState); setStrategyStep(0); setStrategyHistory([]); setAccordionOpen({}); setShowSummary(false); setEditMode(false); setSavedForm(null); setSavedHistory(null); setSavedCurrent(null); }} className="ga-btn ga-btn-secondary">Start Over</button>
+                  <button onClick={() => { setSubmitted(false); setCurrent(0); setHistory([]); setForm(initialState); setStrategyStep(0); setStrategyHistory([]); setAccordionOpen({}); setShowSummary(false); setEditMode(false); setSavedForm(null); }} className="ga-btn ga-btn-secondary">Start Over</button>
                 </div>
               )}
             </>
