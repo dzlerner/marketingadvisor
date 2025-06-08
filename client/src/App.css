@@ -299,3 +299,19 @@ body, .ga-root {
     top: 70px !important;
   }
 }
+
+/* Update the debug window CSS to ensure visibility on mobile devices */
+.debug-window {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 300px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000; /* Ensure it is above other elements */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 50vh;
+}
